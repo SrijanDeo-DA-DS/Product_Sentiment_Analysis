@@ -6,3 +6,8 @@ inflect
 nltk
 spacy
 scikit-learn
+imblearn
+flask
+jsonify
+requests
+textblob

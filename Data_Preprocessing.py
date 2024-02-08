@@ -47,11 +47,7 @@ plt.ylabel('Length of review')
 
 # 1. Converting all to lowercase
 
-def html_tags_remove(text):
-    pattern = re.compile('<.*?>')
-    return pattern.sub(r'',text)
-
-df['Summary'] = df['Summary'].apply(html_tags_remove)
+#df['Summary'] = df['Summary'].apply(lambda i:i.lower())
 
 # 2. Remove HTML tags if any
 
@@ -129,6 +125,8 @@ def tokenize(text):
 
 df['Summary'] = df['Summary'].apply(tokenize)
 
+df.to_csv('Processed_data.csv',index=False)
+
 ## Create Pipelines for Test data
 
 from sklearn.pipeline import Pipeline,make_pipeline
@@ -146,6 +144,8 @@ trf7 = FunctionTransformer(tokenize)
 sk_pipe = Pipeline([("trans1", trf1),("trans2", trf2),("trans3", trf3),("trans4", trf4),
                    ("trans5", trf5),("trans6", trf6),("trans7", trf7)])
 
+
+sk_pipe.transform('I have seen better item than this')
 
 ## Pickle the current Pipeline
 

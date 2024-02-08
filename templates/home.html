@@ -1,0 +1,23 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Predict Sentiment of Customer Review</h1>
+
+       <form action="{{ url_for('predict')}}" method="post">
+        <h1>
+            <legend>Review Predictor</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">product_review</label>
+            <input type="text" id="product_review" name="product_review"><br><br>
+        </div>
+           s<div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict Sentiment" required />
+        </div>
+       </form>
+
+    <h2>
+        The Sentiment is {{results}}
+    </h2>
+        <body>
+</html>
